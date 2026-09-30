@@ -4,3 +4,13 @@ GET {{Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+POST {{Api_HostAddress}}/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Learn deployment",
+  "isDone": false
+}
+
+###
