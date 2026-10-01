@@ -43,6 +43,19 @@ export default function App() {
     }
   }
 
+  async function deleteTask(id) {
+    try {
+      const res = await fetch(`${API_URL}/api/tasks/${id}`, {
+        method: "DELETE",
+      });
+      if (!res.ok) throw new Error();
+      setTasks(tasks.filter((t) => t.id !== id));
+      setError("");
+    } catch {
+      setError("Could not delete the task. Please try again.");
+    }
+  }
+
   return (
     <main className="card">
       <h1>My Tasks</h1>
@@ -67,7 +80,14 @@ export default function App() {
         {tasks.map((t) => (
           <li key={t.id}>
             <span className="dot" />
-            {t.title}
+            <span className="task-title">{t.title}</span>
+            <button
+              className="delete"
+              onClick={() => deleteTask(t.id)}
+              aria-label="Delete task"
+            >
+              ✕
+            </button>
           </li>
         ))}
       </ul>

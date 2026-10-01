@@ -76,6 +76,25 @@ h1 {
   background: #7c6cf0;
 }
 
+.task-title {
+  flex: 1;
+}
+
+.delete {
+  border: none;
+  background: transparent;
+  color: #b0aecb;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.delete:hover {
+  background: #ffe9e9;
+  color: #c0392b;
+}
+
 .hint {
   color: #8a88a8;
   text-align: center;
